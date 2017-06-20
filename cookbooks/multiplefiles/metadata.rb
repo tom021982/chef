@@ -1,0 +1,5 @@
+name 'multiplefiles'
+description 'A multiplefile creation cookbook'
+version '1.0.0'
+maintainer 'Own Company, Inc.'
+maintainer_email 'tom.n@hpe.com'

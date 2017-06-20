@@ -1,0 +1,464 @@
+    1  redhat
+    2  shutdown -h now
+    3  ifconfig
+    4  apt-get update
+    5  shutdown -h now
+    6  export http_proxy="http://web-proxy.in.hpecorp.net:8080"
+    7  export https_proxy="https://web-proxy.in.hpecorp.net:8080"
+    8  apt-get update
+    9  ifconfig
+   10  ifconfig | more
+   11  apt-get update
+   12  reboot
+   13  apt-get update
+   14  export http_proxy="http://web-proxy.in.hpecorp.net:8080"
+   15  export https_proxy="https://web-proxy.in.hpecorp.net:8080"
+   16  apt-get update
+   17  apt-get install vim 
+   18  vim /etc/hosts
+   19  vim /etc/hostname 
+   20  exit
+   21  shutdown -h now
+   22  clear
+   23  ifconfig
+   24  export http_proxy="http://web-proxy.in.hpecorp.net:8080"
+   25  export https_proxy="https://web-proxy.in.hpecorp.net:8080"
+   26  apt-get update
+   27  hoatname
+   28  hostname
+   29  ifconfig
+   30  vim /etc/hosts
+   31  ping node1
+   32  ping node2
+   33  vim /etc/hosts
+   34  apt-get install openssh-server
+   35  ifconfig
+   36  ls
+   37  pwd
+   38  ls /home/tom/Desktop/
+   39  cp  /home/tom/Desktop/chef-repo/ .
+   40  cp  /home/tom/Desktop/chef-repo .
+   41  cp -rf /home/tom/Desktop/chef-repo .
+   42  ls
+   43  ls chef-repo/
+   44  ls chef-repo/cookbooks/
+   45  ls chef-repo/cookbooks/starter/
+   46  ls chef-repo/roles/
+   47  cp -rf /home/tom/Desktop/chefdk_1.4.3-1_amd64.deb .
+   48  ls
+   49  clear
+   50  ls -l
+   51  dpkg -i chefdk_1.4.3-1_amd64.deb 
+   52  chef verfiy
+   53  clear
+   54  chef verify
+   55  free -h
+   56  chef
+   57  chef verify
+   58  ls
+   59  cd chef-repo/
+   60  ls -la
+   61  ls .chef/
+   62  ls -l .chef/
+   63  cat .chef/knife.rb 
+   64  ls
+   65  cd cookbooks/starter/
+   66  ls
+   67  knife node list
+   68  knife
+   69  knife node list
+   70  clear
+   71  cd ..
+   72  clear
+   73  knife bootstrap node1 --ssh-user tom --ssh-password redhat --sudo --use-sudo-password --node-name node2
+   74  knife bootstrap node1 --ssh-user tom --ssh-password redhat --sudo --use-sudo-password --node-name node1 --bootstrap-proxy https://web-proxy.in.hpecorp.net
+   75  knife bootstrap node1 --ssh-user tom --ssh-password redhat --sudo --use-sudo-password --node-name node1 --bootstrap-proxy https://web-proxy.in.hpecorp.net:8080
+   76  knife bootstrap node2 --ssh-user tom --ssh-password redhat --sudo --use-sudo-password --node-name node2 --bootstrap-proxy https://web-proxy.in.hpecorp.net
+   77  knife bootstrap node2 --ssh-user tom --ssh-password redhat --sudo --use-sudo-password --node-name node2 --bootstrap-proxy https://web-proxy.in.hpecorp.net:8080
+   78  ls
+   79  apt-get install git 
+   80  ls
+   81  ls -la
+   82  git
+   83  clear
+   84  git config --global user.name tom
+   85  git config --global user.email tom.sana@gmail.com
+   86  git init
+   87  git add *
+   88  git commit -n "first commit"
+   89  git commit -m "first commit"
+   90  git remote add origin https://github.com/tom24n/learnchef.git
+   91  ls
+   92  git push origin master
+   93  git remote add origin https://github.com/tom24n/learningchef.git
+   94  git remote remove origin
+   95  git remote add origin https://github.com/tom24n/learningchef.git
+   96  git push origin master
+   97  git remote remove origin
+   98  git remote add origin https://github.com/tomsana/learningchef.git
+   99  git push origin master
+  100  git remote remove origin
+  101  git remote add origin https://github.com/tomsana/learningchef.git
+  102  git push origin master
+  103  git status
+  104  git add *
+  105  git commit -m "first commit1"
+  106  git remote remove origin
+  107  git remote add origin https://github.com/tomsana/learningchef.git
+  108  git push origin master
+  109  git status
+  110  git push origin master
+  111  git status
+  112  git add *
+  113  git commit -m "with new codes"
+  114  git push origin master
+  115  git push -u origin master
+  116  git remote remove origin
+  117  git remote add origin https://github.com/tomsana/tomrepo.git
+  118  git push -u origin master
+  119  git push origin master
+  120  ls
+  121  cd cookbooks/
+  122  mkdir firstcookbook
+  123  ls
+  124  cd firstcookbook/
+  125  mkdir recipes
+  126  ls
+  127  cd recipes/
+  128  ls
+  129  touch default.rb
+  130  ls
+  131  vim default.rb 
+  132  ls
+  133  knife cookbook upload firstcookbook
+  134  cd ..
+  135  cd cookbooks/starter/
+  136  ls
+  137  cp metadata.rb ~/chef-repo/cookbooks/firstcookbook/
+  138  cd ../firstcookbook/
+  139  ls
+  140  vim metadata.rb 
+  141  knife cookbook upload firstcookbook
+  142  ls
+  143  vim metadata.rb 
+  144  cd recipes/
+  145  ls
+  146  cat default.rb 
+  147  knife node show node1
+  148  knife node run_list add node1 'recipe[firstcookbook::default]'
+  149  knife node show node1
+  150  ls
+  151  touch nodetwo.rb
+  152  ls
+  153  vim nodetwo.rb 
+  154  lx
+  155  ls
+  156  knife diff firstcookbook
+  157  cd ..
+  158  knife diff firstcookbook
+  159  knife cookbook upload firstcookbook
+  160  ls
+  161  cat firstcookbook/recipes/nodetwo.rb 
+  162  knife node run_list add node2 'recipe[firstcookbook::nodetwo]'
+  163  ls
+  164  cd  firstcookbook/
+  165  ls
+  166  cd recipes/
+  167  ls
+  168  vim default.rb 
+  169  knife cookbook upload firstcookbook
+  170  ls
+  171  ls 
+  172  cd ..
+  173  ls
+  174  mkdir secondcookbook
+  175  ls -l firstcookbook/
+  176  ls -l firstcookbook/recipes/
+  177  lc
+  178  ls
+  179  cd secondcookbook/
+  180  cp ../firstcookbook/* .
+  181  ls
+  182  mkdir recipe
+  183  ls
+  184  vim metadata.rb 
+  185  ls
+  186  cd recipe/
+  187  ls
+  188  touch default.rb
+  189  ls
+  190  vim default.rb 
+  191  cd ..
+  192  ls
+  193  lsc firstcookbook/
+  194  ls firstcookbook/
+  195  cd secondcookbook/
+  196  ls
+  197  mkdir recipes
+  198  ls
+  199  rm -rf recipe
+  200  ls
+  201  cd recipes/
+  202  touch default.rb
+  203  vim default.rb 
+  204  knife cookbook upload secondcookbook
+  205  ls
+  206  cd ..
+  207  ls
+  208  cat metadata.rb 
+  209  knife node run_list add node2 'recipe[secondcookbook]' -b 'recipe[firstcookbook::nodetwo]'
+  210  cd
+  211  ls
+  212  history > commands
+  213  ls
+  214  ls -l
+  215  shutdown -h now
+  216  ls 
+  217  cat commands | grep -i export
+  218  export http_proxy="http://web-proxy.in.hpecorp.net:8080"
+  219  export https_proxy="https://web-proxy.in.hpecorp.net:8080"
+  220  apt-get update
+  221  cat /etc/hosts
+  222  ifconfig
+  223  cd chef-repo/cookbooks/
+  224  ls
+  225  knife node show node1
+  226  clear
+  227  ls
+  228  cd firstcookbook/
+  229  ls
+  230  cd recipes/
+  231  ls
+  232  vim default.rb 
+  233  knife cookbook upload firstcookbook
+  234  ls
+  235  vim default.rb 
+  236  knife cookbook upload firstcookbook
+  237  cd ..
+  238  ls
+  239  cp -rf firstcookbook/ multiplefiles/
+  240  ls
+  241  cd multiplefiles/
+  242  ls
+  243  vim metadata.rb 
+  244  ls
+  245  cd recipes/
+  246  ls
+  247  rm -rf nodetwo.rb 
+  248  ls
+  249  vim default.rb 
+  250  knife cookbook upload multiplefiles
+  251  knife 
+  252  knife node
+  253  knife node run_list add node1 'recipe[multiplefiles::default]' 
+  254  ls
+  255  vim default.rb 
+  256  knife cookbook upload multiplefiles
+  257  vim default.rb 
+  258  cd ..
+  259  ls
+  260  knife cookbook create logic
+  261  ls
+  262  cd logic/
+  263  ls
+  264  cd recipes/
+  265  ls
+  266  vim default.rb 
+  267  knife node run_list add node1 'recipe[logic::default]'
+  268  knife node run_list add node2 'recipe[logic::default]'
+  269  vim default.rb 
+  270  knife cookbook upload logic
+  271  vim default.rb 
+  272  knife cookbook upload logic
+  273  vim default.rb 
+  274  cd ..
+  275  ls
+  276  knife cookbook create newfile
+  277  ls
+  278  cd newfile/
+  279  ls
+  280  cd recipes/
+  281  ls
+  282  vim default.rb 
+  283  knife cookbook upload newfile
+  284  knife node run_list add node1 'recipe[newfile::default]'
+  285  cd ..
+  286  cd newfile/recipes/
+  287  foodcritic default.rb 
+  288  ls ~
+  289  cd ..
+  290  knife cookbook create ntp
+  291  ls
+  292  cd ntp/
+  293  ls
+  294  cd recipes/
+  295  ls
+  296  vim default.rb 
+  297  knife cookbook upload ntp
+  298  knife node run_list add node1 'recipe[ntp::default]'
+  299  vim default.rb 
+  300  knife cookbook upload ntp
+  301  vim default.rb 
+  302  ls
+  303  cd ..
+  304  ls
+  305  cd files/default/
+  306  ls
+  307  touch tobetransfer
+  308  vim tobetransfer 
+  309  ls
+  310  mv tobetransfer tobetransfered
+  311  ls
+  312  cd ../../../
+  313  ls
+  314  cd ntp/recipes/
+  315  ls
+  316  vim default.rb 
+  317  knife cookbook upload ntp
+  318  cd ..
+  319  ls
+  320  cd ..
+  321  knife cookbook create webserver
+  322  ls
+  323  cd webserver/
+  324  ls
+  325  cd recipes/
+  326  ls
+  327  vim default.rb 
+  328  cd ..
+  329  ls
+  330  cd files/
+  331  ls
+  332  cd default/
+  333  ls
+  334  touch webserver
+  335  cd ..
+  336  ls
+  337  cd recipes/
+  338  ls
+  339  cat default.rb 
+  340  cd ..
+  341  ls
+  342  cd files/
+  343  ls
+  344  cd default/
+  345  ls
+  346  vim webserver 
+  347  cd ..
+  348  ls
+  349  cd ..
+  350  knife cookbook upload webserver
+  351  knife node run_list add node1 'recipe[webserver::default]'
+  352  vim recipes/default.rb 
+  353  knife cookbook upload webserver
+  354  vim recipes/default.rb 
+  355  cd ..
+  356  knife cookbook create newuser
+  357  ls
+  358  cd newuser/
+  359  ls
+  360  vim recipes/default.rb 
+  361  cat /etc/shadow
+  362  vim recipes/default.rb 
+  363  knife cookbook upload newuser
+  364  knife node run_list add node1 'recipe[newuser::default]'
+  365  vim recipes/default.rb 
+  366  ld
+  367  ls
+  368  cd ..
+  369  ls
+  370  cd webserver/
+  371  ls
+  372  cd templates/
+  373  ls
+  374  cd default/
+  375  ls
+  376  vim index.html.erb
+  377  cd ..
+  378  ls
+  379  cd recipes/
+  380  ls
+  381  vim default.rb 
+  382  cd ..
+  383  cd templates/
+  384  ls
+  385  cd default/
+  386  ls
+  387  vim index.html.erb 
+  388  knife cookbook upload webserver
+  389  knife node run_list add node2 'recipe[webserver::default]'
+  390  knife node run_list add node1 'recipe[webserver::default]'
+  391  vim index.html.erb 
+  392  knife cookbook upload webserver
+  393  vim index.html.erb 
+  394  knife cookbook upload webserver
+  395  vim index.html.erb 
+  396  knife cookbook upload webserver
+  397  cd ../..
+  398  cd ..
+  399  knife search node "hostname:node1"
+  400  knife search node "hostname:node*"
+  401  knife search node "hostname:node*" -a ipaddress
+  402  knife search node "network_interfaces_eth1:*" -a network.interfaces.eth1.addresses
+  403  cd webserver/
+  404  ls
+  405  cd recipes/
+  406  ls
+  407  vim default.rb 
+  408  knife cookbook upload webserver
+  409  vim default.rb 
+  410  knife cookbook upload webserver
+  411  cd ..
+  412  ls
+  413  cd attributes/
+  414  ls
+  415  touch default.rb
+  416  vim default.rb 
+  417  knife cookbook upload webserver
+  418  vim default.rb 
+  419  cd ..
+  420  ls
+  421  cd recipes/
+  422  ls
+  423  vim default.rb 
+  424  cd ../attributes/
+  425  vim default.rb 
+  426  cd ../recipes/
+  427  ls
+  428  vim default.rb 
+  429  knife cookbook upload webserver
+  430  cd ..
+  431  ls
+  432  knife role list
+  433  export EDITOR =vim
+  434  export EDITOR=vim
+  435  knife role create frontend
+  436  cd recipes/
+  437  ls
+  438  vim default.rb 
+  439  knife cookbook upload webserver
+  440  knife node show node1
+  441  knife node run_list set node1 'role[frontend]'
+  442  knife node show node1
+  443  ls ../
+  444  ls ../templates/
+  445  ls ../templates/default/
+  446  cat ../templates/default/index.html.erb 
+  447  vim default.rb 
+  448  knife environment list
+  449  knife environment create prod
+  450  knife environment create dev
+  451  knife environment list
+  452  knife node edit node1
+  453  knife node show node2
+  454  knife node show node1
+  455  knife cookbook upload webserver --freeze
+  456  knife cookbook upload webserver
+  457  cd ..
+  458  ls
+  459  vim metadata.rb 
+  460  knife cookbook upload webserver
+  461  ls ../
+  462  knife cookbook show webserver
+  463  ls ~
+  464  history > ~commands-2nd-day
